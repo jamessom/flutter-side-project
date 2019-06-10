@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fsp/pages/dogLife/reset-password.page.dart';
+import 'package:fsp/pages/dogLife/signup.page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -30,7 +31,7 @@ class LoginPage extends StatelessWidget {
           SizedBox(height: 10,),
           _listViewItemButtonLoginFacebook(),
           SizedBox(height: 10,),
-          _listViewItemTextContent(),
+          _listViewItemTextContent(context),
         ],
       ),
     );
@@ -175,7 +176,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  _listViewItemTextContent() {
+  _listViewItemTextContent(context) {
     return Container(
       height: 40,
       child: FlatButton(
@@ -183,7 +184,7 @@ class LoginPage extends StatelessWidget {
           "Cadastre-se",
           textAlign: TextAlign.center,
         ),
-        onPressed: () => {},
+        onPressed: () => _actionSignup(context),
       ),
     );
   }
@@ -194,6 +195,15 @@ class LoginPage extends StatelessWidget {
       context,
       MaterialPageRoute(
         builder: (context) => ResetPasswordPage(),
+      )
+    );
+  }
+
+  _actionSignup(context) {
+    return Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SignupPage(),
       )
     );
   }
