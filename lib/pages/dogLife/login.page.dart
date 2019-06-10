@@ -1,47 +1,42 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fsp/pages/dogLife/reset-password.page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.only(
-          top: 60,
-          left: 40,
-          right: 40,
-        ),
-        color: Colors.white,
-        child: ListView(
-          children: <Widget>[
-            assetLogo(),
-            customDivider(),
-            emailInput(),
-            SizedBox(height: 10,),
-            passInput(),
-            buttonForgotPassword(),
-            SizedBox(height: 10,),
-            buttonLogin(),
-            SizedBox(height: 10,),
-            buttonLoginFacebook(),
-            SizedBox(height: 10,),
-            Container(
-              height: 40,
-              child: FlatButton(
-                child: Text(
-                  "Cadastre-se",
-                  textAlign: TextAlign.center,
-                ),
-                onPressed: () => {},
-              ),
-            ),
-          ],
-        ),
+      body: _bodyContainer(context),
+    );
+  }
+
+  _bodyContainer(context) {
+    return Container(
+      padding: EdgeInsets.only(
+        top: 40,
+        left: 40,
+        right: 40,
+      ),
+      color: Colors.white,
+      child: ListView(
+        children: <Widget>[
+          _listViewItemAssetImageContent(),
+          SizedBox(height: 20,),
+          _listViewItemEmailInput(),
+          SizedBox(height: 10,),
+          _listViewItemPassInput(),
+          _listViewItemButtonForgotPassword(context),
+          SizedBox(height: 10,),
+          _listViewItemButtonLogin(),
+          SizedBox(height: 10,),
+          _listViewItemButtonLoginFacebook(),
+          SizedBox(height: 10,),
+          _listViewItemTextContent(),
+        ],
       ),
     );
   }
 
-  assetLogo() {
+  _listViewItemAssetImageContent() {
     return SizedBox(
       width: 128,
       height: 128,
@@ -49,29 +44,22 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  customDivider() {
-    return SizedBox(
-      height: 20,
-    );
-  }
-
-  emailInput() {
+  _listViewItemEmailInput() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
       style: new TextStyle(fontSize: 20),
-      autofocus: true,
       decoration: InputDecoration(
         labelText: "E-mail",
         labelStyle: TextStyle(
           color: Colors.black38, 
           fontWeight: FontWeight.w400, 
-          fontSize: 10,
+          fontSize: 20,
         )
       ),
     );
   }
 
-  passInput() {
+  _listViewItemPassInput() {
     return TextFormField(
       keyboardType: TextInputType.text,
       obscureText: true,
@@ -87,7 +75,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  buttonForgotPassword() {
+  _listViewItemButtonForgotPassword(context) {
     return Container(
       height: 40,
       alignment: Alignment.centerRight,
@@ -96,12 +84,12 @@ class LoginPage extends StatelessWidget {
           "Recuperar Senha",
           textAlign: TextAlign.right,
         ),
-        onPressed: () => {},
+        onPressed: () => _actionForgotPassword(context),
       ),
     );
   }
 
-  buttonLogin() {
+  _listViewItemButtonLogin() {
     return Container(
       height: 60,
       alignment: Alignment.centerLeft,
@@ -148,7 +136,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  buttonLoginFacebook() {
+  _listViewItemButtonLoginFacebook() {
     return Container(
       height: 60,
       alignment: Alignment.centerLeft,
@@ -187,12 +175,26 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  // actionForgotPasswordPage() {
-  //   return Navigator.push(
-  //           context,
-  //           MaterialPageRoute(
-  //             builder: (context) => ResetPasswordPage()
-  //           )
-  //         )
-  // }
+  _listViewItemTextContent() {
+    return Container(
+      height: 40,
+      child: FlatButton(
+        child: Text(
+          "Cadastre-se",
+          textAlign: TextAlign.center,
+        ),
+        onPressed: () => {},
+      ),
+    );
+  }
+
+  // Actions
+  _actionForgotPassword(context) {
+    return Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResetPasswordPage(),
+      )
+    );
+  }
 }
