@@ -4,13 +4,13 @@ class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _bodyContainer(context),
+      body: bodyContainer(context),
     );
   }
       
-  _bodyContainer(context) {
+  dynamic bodyContainer(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         top: 10,
         left: 40,
         right: 40,
@@ -18,43 +18,43 @@ class SignupPage extends StatelessWidget {
       color: Colors.white,
       child: ListView(
         children: <Widget>[
-          _listViewItemAssetImageContent(),
-          _listViewItemFormFieldName(),
-          _listViewItemFormFieldEmail(),
-          _listViewItemFormFieldPass(),
-          SizedBox(height: 40,),
-          _listViewItemButtonRegister(),
-          SizedBox(height: 5,),
-          _listViewItemButtonCancel(context),
+          imageContent(),
+          formFieldName(),
+          formFieldEmail(),
+          formFieldPass(),
+          const SizedBox(height: 40,),
+          custonRegister(),
+          const SizedBox(height: 5,),
+          custonCancel(context),
         ],
       ),
     );
   }
 
-  _listViewItemAssetImageContent() {
+  Widget imageContent() {
     return Container(
       width: 200,
       height: 200,
-      alignment: Alignment(0.0, 1.15),
-      decoration: new BoxDecoration(
-        image: new DecorationImage(
-          image: AssetImage('assets/profile-picture.png'),
+      alignment: const Alignment(0.0, 1.15),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: const AssetImage('assets/profile-picture.png'),
           fit: BoxFit.fitHeight
         ),
       ),
-      child: _listViewItemContentBox(),
+      child: contentBox(),
     );
   }
 
-  _listViewItemContentBox() {
+  Widget contentBox() {
     return Container(
       height: 56,
       width: 56,
       alignment: Alignment.center,
-      decoration: _listViewItemContentBoxDecoration(),
+      decoration: contentBoxDecoration(),
       child: SizedBox.expand(
         child: FlatButton(
-          child: Icon(
+          child: const Icon(
             Icons.add,
             color: Colors.white,
           ),
@@ -64,13 +64,15 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  _listViewItemContentBoxDecoration() {
+  dynamic contentBoxDecoration() {
+    final List<double> stopsGradient = <double>[0.3, 1.0];
+
     return BoxDecoration(
       gradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        stops: [0.3, 1.0],
-        colors: [
+        stops: stopsGradient,
+        colors: const <Color>[
           Color(0XFFF58524),
           Color(0XFFF92B7F),
         ]
@@ -79,20 +81,20 @@ class SignupPage extends StatelessWidget {
         width: 4.0,
         color: Colors.white,
       ),
-      borderRadius: BorderRadius.all(
+      borderRadius: const BorderRadius.all(
         Radius.circular(56),
       ),
     );
   }
 
-  _listViewItemFormFieldName() {
+  Widget formFieldName() {
     return TextFormField(
       keyboardType: TextInputType.text,
       style: TextStyle(
         fontSize: 20,
       ),
       decoration: InputDecoration(
-        labelText: "Nome",
+        labelText: 'Nome',
         labelStyle: TextStyle(
           color: Colors.black38,
           fontWeight: FontWeight.w400,
@@ -102,14 +104,14 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  _listViewItemFormFieldEmail() {
+  Widget formFieldEmail() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
       style: TextStyle(
         fontSize: 20,
       ),
       decoration: InputDecoration(
-        labelText: "E-mail",
+        labelText: 'E-mail',
         labelStyle: TextStyle(
           color: Colors.black38,
           fontWeight: FontWeight.w400,
@@ -119,7 +121,7 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  _listViewItemFormFieldPass() {
+  Widget formFieldPass() {
     return TextFormField(
       keyboardType: TextInputType.text,
       obscureText: true,
@@ -127,7 +129,7 @@ class SignupPage extends StatelessWidget {
         fontSize: 20,
       ),
       decoration: InputDecoration(
-        labelText: "Senha",
+        labelText: 'Senha',
         labelStyle: TextStyle(
           color: Colors.black38,
           fontWeight: FontWeight.w400,
@@ -137,7 +139,7 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  _listViewItemButtonRegister() {
+  Widget custonRegister() {
     return Container(
       height: 60,
       alignment: Alignment.centerLeft,
@@ -145,20 +147,20 @@ class SignupPage extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          stops: [0.3, 1],
-          colors: [
+          stops: const <double>[0.3, 1],
+          colors: const <Color>[
             Color(0xFFF58524),
             Color(0xFFF92B7F),
           ],
         ),
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(5),
         )
       ),
       child: SizedBox.expand(
         child: FlatButton(
           child: Text(
-            "Cadastrar",
+            'Cadastrar',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -166,19 +168,19 @@ class SignupPage extends StatelessWidget {
               fontSize: 20
             ),
           ),
-          onPressed: () => {},
+          onPressed: () => null,
         ),
       )
     );
   }
 
-  _listViewItemButtonCancel(context) {
+  Widget custonCancel(BuildContext context) {
     return Container(
       height: 40,
       alignment: Alignment.center,
       child: FlatButton(
-        child: Text(
-          "Cancelar",
+        child: const Text(
+          'Cancelar',
           textAlign: TextAlign.center,
         ),
         onPressed: () => Navigator.pop(context, false),

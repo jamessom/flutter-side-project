@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/dogLife/login.page.dart';
+import 'package:fsp/pages/dogLife/login_page.dart';
 
 void main() => runApp(App());
 

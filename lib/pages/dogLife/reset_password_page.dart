@@ -4,25 +4,25 @@ class ResetPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBar(context),
-      body: _bodyContainer(),
+      appBar: appBar(context),
+      body: bodyContainer(),
     );
   }
 
-  _appBar(context) {
+  dynamic appBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
       leading: IconButton(
-        icon: Icon(Icons.arrow_back),
+        icon: const Icon(Icons.arrow_back),
         color: Colors.black38,
         onPressed: () => Navigator.pop(context, false),
       ),
     );
   }
 
-  _bodyContainer() {
+  dynamic bodyContainer() {
     return Container(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         top: 40,
         left: 40,
         right: 40,
@@ -30,34 +30,34 @@ class ResetPasswordPage extends StatelessWidget {
       color: Colors.white,
       child: ListView(
         children: <Widget>[
-          _listViewItemAssetImageContent(),
-          SizedBox(height: 10,),
-          _listViewItemTextContentTitle(),
-          SizedBox(height: 10,),
-          _listViewItemTextContentCopy(),
-          SizedBox(height: 20,),
-          _listViewItemFormField(),
-          SizedBox(height: 10,),
-          _listViewItemFormButton(),
-          SizedBox(height: 10,),
+          imageContent(),
+          const SizedBox(height: 10,),
+          textContentTitle(),
+          const SizedBox(height: 10,),
+          textContentCopy(),
+          const SizedBox(height: 20,),
+          formField(),
+          const SizedBox(height: 10,),
+          formButton(),
+          const SizedBox(height: 10,),
         ],
       ),
     );
   }
 
-  _listViewItemAssetImageContent() {
+  Widget imageContent() {
     return SizedBox(
       width: 200,
       height: 200,
       child: Image.asset(
-        "assets/reset-password-icon.png"
+        'assets/reset-password-icon.png'
       ),
     );
   }
 
-  _listViewItemTextContentTitle() {
+  Widget textContentTitle() {
     return Text(
-      "Esqueceu sua senha?",
+      'Esqueceu sua senha?',
       style: TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.w500,
@@ -66,9 +66,9 @@ class ResetPasswordPage extends StatelessWidget {
     );
   }
 
-  _listViewItemTextContentCopy() {
+  Widget textContentCopy() {
     return Text(
-      "Por favor, informe o E-mail associado a sua conta que enviaremos um link para o mesmo com as instruções para restauração de sua senha.",
+      'Por favor, informe o E-mail associado a sua conta que enviaremos um link para o mesmo com as instruções para restauração de sua senha.',
       style: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.w400,
@@ -77,11 +77,11 @@ class ResetPasswordPage extends StatelessWidget {
     );
   }
 
-  _listViewItemFormField() {
+  Widget formField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
-        labelText: "E-mail",
+        labelText: 'E-mail',
         labelStyle: TextStyle(
           color: Colors.black38,
           fontWeight: FontWeight.w400,
@@ -94,7 +94,7 @@ class ResetPasswordPage extends StatelessWidget {
     );
   }
 
-  _listViewItemFormButton() {
+  Widget formButton() {
     return Container(
       height: 60,
       alignment: Alignment.center,
@@ -102,20 +102,20 @@ class ResetPasswordPage extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          stops: [0.3,1],
-          colors: [
+          stops: const <double>[0.3,1],
+          colors: const <Color>[
             Color(0xFFF56524),
             Color(0xFFF92B7F),
           ],
         ),
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(5),
         ),
       ),
       child: SizedBox.expand(
         child: FlatButton(
           child: Text(
-            "Enviar",
+            'Enviar',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -123,7 +123,7 @@ class ResetPasswordPage extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          onPressed: (){},
+          onPressed: () => null,
         ),
       ),
     );

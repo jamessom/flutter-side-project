@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:fsp/pages/dogLife/reset-password.page.dart';
-import 'package:fsp/pages/dogLife/signup.page.dart';
+import 'package:fsp/pages/dogLife/reset_password_page.dart';
+import 'package:fsp/pages/dogLife/signup_page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _bodyContainer(context),
+      body: bodyContainer(context),
     );
   }
 
-  _bodyContainer(context) {
+  dynamic bodyContainer(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         top: 40,
         left: 40,
         right: 40,
@@ -20,37 +20,37 @@ class LoginPage extends StatelessWidget {
       color: Colors.white,
       child: ListView(
         children: <Widget>[
-          _listViewItemAssetImageContent(),
-          SizedBox(height: 20,),
-          _listViewItemEmailInput(),
-          SizedBox(height: 10,),
-          _listViewItemPassInput(),
-          _listViewItemButtonForgotPassword(context),
-          SizedBox(height: 10,),
-          _listViewItemButtonLogin(),
-          SizedBox(height: 10,),
-          _listViewItemButtonLoginFacebook(),
-          SizedBox(height: 10,),
-          _listViewItemTextContent(context),
+          imageContent(),
+          const SizedBox(height: 20,),
+          emailInput(),
+          const SizedBox(height: 10,),
+          passInput(),
+          buttonForgotPassword(context),
+          const SizedBox(height: 10,),
+          buttonLogin(),
+          const SizedBox(height: 10,),
+          buttonLoginFacebook(),
+          const SizedBox(height: 10,),
+          textContent(context),
         ],
       ),
     );
   }
 
-  _listViewItemAssetImageContent() {
+  Widget imageContent() {
     return SizedBox(
       width: 128,
       height: 128,
-      child: Image.asset("assets/logo.png"),
+      child: Image.asset('assets/logo.png'),
     );
   }
 
-  _listViewItemEmailInput() {
+  Widget emailInput() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
-      style: new TextStyle(fontSize: 20),
+      style: TextStyle(fontSize: 20),
       decoration: InputDecoration(
-        labelText: "E-mail",
+        labelText: 'E-mail',
         labelStyle: TextStyle(
           color: Colors.black38, 
           fontWeight: FontWeight.w400, 
@@ -60,13 +60,13 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  _listViewItemPassInput() {
+  Widget passInput() {
     return TextFormField(
       keyboardType: TextInputType.text,
       obscureText: true,
-      style: new TextStyle(fontSize: 20),
+      style: TextStyle(fontSize: 20),
       decoration: InputDecoration(
-        labelText: "Senha",
+        labelText: 'Senha',
         labelStyle: TextStyle(
           color: Colors.black38,
           fontWeight: FontWeight.w400,
@@ -76,21 +76,21 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  _listViewItemButtonForgotPassword(context) {
+  Widget buttonForgotPassword(BuildContext context) {
     return Container(
       height: 40,
       alignment: Alignment.centerRight,
       child: FlatButton(
-        child: Text(
-          "Recuperar Senha",
+        child: const Text(
+          'Recuperar Senha',
           textAlign: TextAlign.right,
         ),
-        onPressed: () => _actionForgotPassword(context),
+        onPressed: () => actionForgotPassword(context),
       ),
     );
   }
 
-  _listViewItemButtonLogin() {
+  Widget buttonLogin() {
     return Container(
       height: 60,
       alignment: Alignment.centerLeft,
@@ -98,13 +98,13 @@ class LoginPage extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          stops: [0.3, 1],
-          colors: [
+          stops: const <double>[0.3, 1],
+          colors: const <Color>[
             Color(0xFFF58524),
             Color(0xFFF92B7F),
           ],
         ),
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(5),
         )
       ),
@@ -114,7 +114,7 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                "Login",
+                'Login',
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -124,26 +124,26 @@ class LoginPage extends StatelessWidget {
               ),
               Container(
                 child: SizedBox(
-                  child: Image.asset("assets/bone.png"),
+                  child: Image.asset('assets/bone.png'),
                   height: 28,
                   width: 28,
                 ),
               )
             ],
           ),
-          onPressed: () => {},
+          onPressed: () => null,
         ),
       )
     );
   }
 
-  _listViewItemButtonLoginFacebook() {
+  Widget buttonLoginFacebook() {
     return Container(
       height: 60,
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
-        color: Color(0xFF3C5A99),
-        borderRadius: BorderRadius.all(
+        color: const Color(0xFF3C5A99),
+        borderRadius: const BorderRadius.all(
           Radius.circular(5),
         )
       ),
@@ -153,7 +153,7 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                "Login com Facebook",
+                'Login com Facebook',
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -163,47 +163,47 @@ class LoginPage extends StatelessWidget {
               ),
               Container(
                 child: SizedBox(
-                  child: Image.asset("assets/fb-icon.png"),
+                  child: Image.asset('assets/fb-icon.png'),
                   height: 28,
                   width: 28,
                 ),
               )
             ],
           ),
-          onPressed: () => {},
+          onPressed: () => null,
         ),
       ),
     );
   }
 
-  _listViewItemTextContent(context) {
+  Widget textContent(BuildContext context) {
     return Container(
       height: 40,
       child: FlatButton(
-        child: Text(
-          "Cadastre-se",
+        child: const Text(
+          'Cadastre-se',
           textAlign: TextAlign.center,
         ),
-        onPressed: () => _actionSignup(context),
+        onPressed: () => actionSignup(context),
       ),
     );
   }
 
   // Actions
-  _actionForgotPassword(context) {
-    return Navigator.push(
+  dynamic actionForgotPassword(BuildContext context) {
+    return Navigator.push<dynamic>(
       context,
-      MaterialPageRoute(
-        builder: (context) => ResetPasswordPage(),
+      MaterialPageRoute<dynamic>(
+        builder: (BuildContext context) => ResetPasswordPage(),
       )
     );
   }
 
-  _actionSignup(context) {
-    return Navigator.push(
+  dynamic actionSignup(BuildContext context) {
+    return Navigator.push<dynamic>(
       context,
-      MaterialPageRoute(
-        builder: (context) => SignupPage(),
+      MaterialPageRoute<dynamic>(
+        builder: (BuildContext context) => SignupPage(),
       )
     );
   }
