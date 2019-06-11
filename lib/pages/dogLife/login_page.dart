@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fsp/pages/dogLife/reset-password.page.dart';
-import 'package:fsp/pages/dogLife/signup.page.dart';
+import 'package:fsp/pages/dogLife/reset_password_page.dart';
+import 'package:fsp/pages/dogLife/signup_page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
