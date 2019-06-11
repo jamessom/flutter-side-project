@@ -11,7 +11,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.deepPurple,
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -29,38 +29,38 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  cpfInput() {
+  Widget cpfInput() {
     return TextFormField(
       autofocus: true,
       keyboardType: TextInputType.number,
-      style: new TextStyle(color: Colors.white, fontSize: 20),
+      style: TextStyle(color: Colors.white, fontSize: 20),
       decoration: InputDecoration(
-        labelText: "CPF",
+        labelText: 'CPF',
         labelStyle: TextStyle(color: Colors.white)
       ),
     );
   }
 
-  passInput() {
+  Widget passInput() {
     return TextFormField(
       autofocus: true,
       obscureText: true,
       keyboardType: TextInputType.text,
-      style: new TextStyle(color: Colors.white, fontSize: 20),
+      style: TextStyle(color: Colors.white, fontSize: 20),
       decoration: InputDecoration(
-        labelText: "Senha",
+        labelText: 'Senha',
         labelStyle: TextStyle(color: Colors.white)
       ),
     );
   }
 
-  actionButton() {
+  Widget actionButton() {
     return ButtonTheme(
       height: 60.0,
       child: RaisedButton(
-        onPressed: () => {},
+        onPressed: () => false,
         child: Text(
-          "Entrar",
+          'Entrar',
           style: TextStyle(color: Colors.deepPurple),
         ),
         color: Colors.white,
